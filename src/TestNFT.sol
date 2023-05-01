@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.17;
 
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/access/AccessControl.sol";
+import "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
+import "lib/openzeppelin-contracts/contracts/access/AccessControl.sol";
 
 contract GenesisIgniteNFT is ERC721Enumerable, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
@@ -65,7 +65,7 @@ contract GenesisIgniteNFT is ERC721Enumerable, AccessControl {
     function _setTokenURI(
         uint256 tokenId,
         string memory _tokenURI
-    ) internal virtual {
+    ) external virtual {
         require(
             _exists(tokenId),
             "GenesisIgniteNFT: URI set of nonexistent token"
